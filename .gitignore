@@ -18,3 +18,15 @@ env/
 
 results/figures/*.png
 results/tables/*.csv
+
+# Large archives
+*.tar
+*.tar.gz
+*.zip
+*.tsv.gz
+
+# Data files
+data/raw/*
+data/structures/*
+!data/raw/.gitkeep
+!data/structures/.gitkeep
