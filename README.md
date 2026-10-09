@@ -147,7 +147,31 @@ Top 5 features driving predictions:
 5. **Hydrophobicity change** (0.084)
 
 ---
+## Model Evaluation
 
+### Confusion Matrix
+
+![Confusion Matrix](results/figures/confusion_matrix.png)
+
+The model catches 96% of resistant mutations (132 of 137) but mislabels 28 sensitive mutations as resistant. This is the expected trade-off on an imbalanced dataset — the safer error profile in cancer therapy.
+
+### ROC Curve
+
+![ROC Curve](results/figures/roc_curve.png)
+
+AUC = 0.765. The model performs well above random (0.5), showing real predictive signal.
+
+### Feature Importance
+
+![Feature Importance](results/figures/feature_importance.png)
+
+The top features driving predictions are `position`, `distance_to_ligand`, and `SASA` — all structural signals. Chemistry-change features (volume, hydrophobicity) contribute next, confirming that both geometry and amino acid properties matter.
+
+### Per-Protein Accuracy
+
+![Per-Protein Accuracy](results/figures/per_protein_accuracy.png)
+
+Performance varies by protein. This is expected in leave-one-protein-out validation — the model must predict on a protein it never trained on.
 ## Limitations
 
 1. **Small dataset**: 176 mutations across 5 proteins
